@@ -54,8 +54,8 @@ class AuthController extends Controller
                 return redirect()->intended('dashboard')
                             ->withSuccess('You have Successfully loggedin');
             }
-            //$request->session()->flash('status',  __('signup.credential_not_valid'));
-            return redirect("login")->withSuccess('Oppes! You have entered invalid credentials');
+            $request->session()->flash('message','Credential not valid');
+            return redirect("login");;
         } catch (\Exception $exception) {
             Log::critical($exception);
             Log::critical('Code 503 | ErrorCode:B003  postLogin page');

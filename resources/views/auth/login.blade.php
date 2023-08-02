@@ -17,7 +17,9 @@
                   <div class="card-header">Login</div>
 
                   <div class="card-body">
-
+                  @if(Session::has('message'))
+                    <p class="alert alert-danger">{{ Session::get('message') }}</p>
+                  @endif
   
 
                       <form action="{{ route('login.post') }}" method="POST">
